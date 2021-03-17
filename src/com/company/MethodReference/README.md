@@ -11,6 +11,8 @@ MathInterface i = Math::random;
 ```
 * 중요한 점은 메소드를 호출하는 것이 아니라 그냥 참조 (언제든 호출 할 수 있도록 주소를 담아둠)만 하는 점이라는 것이다.
 
+<br/>
+
 자바스크립트에서 함수 참조
 -
 * 자바스크립트(Javascript)에서 함수는 아래와 같은 방법으로 변수에 담을 수 있다.
@@ -44,6 +46,8 @@ let func_value = new js_Object().func;
 console.log(func_value(1,2)); // 3
 ```
 
+<br/>
+
 자바스크립트처럼 메소드를 참조하기
 -
 
@@ -69,6 +73,9 @@ func(); // 에러 => 호출이 되지 않음
 즉, 메소드 또한 메모리에 주소가 있고, 때문에 주소를 변수에 담을 수 있을 것이다.
 주소를 찾아 메서드를 실행하면 그만 아닌가!
 
+<br/>
+
+
 어디에 담아야 할까?
 -
 그럼 어디에 담을 수 있을까?  
@@ -78,6 +85,9 @@ func(); // 에러 => 호출이 되지 않음
 위에서 보면 MathInterface 인터페이스에 Math의 Random 함수를 바라보도록(참조하도록) 선언을 해두었다.  
 그리고 아래와 같이 호출할 수 있다.
 
+<br/>
+
+
 📌 [Run1.java](./Run1.java)
 -
 
@@ -86,6 +96,9 @@ func(); // 에러 => 호출이 되지 않음
 MathInterface i = Math::random;
 System.out.println(i.get()); // 0.6163065003355584 => 호출이 가능하다.
 ```
+
+<br/>
+
 
 왜 인터페이스일까?
 -
@@ -106,6 +119,9 @@ System.out.println(i.get()); // 0.6163065003355584 => 호출이 가능하다.
 빈 껍데기에 참조만 하면 더 간편하게 사용할 수 있다.
 
 아래 코드를 보자
+
+<br/>
+
 
 📌 [MathInterface.java](./MathInterface.java)
 -
@@ -131,6 +147,9 @@ MathInterface i = Math::random;
 ```
 
 
+<br/>
+
+
 그럼 자바는 어떻게 인터페이스로 생성한 변수 i 가 메소드를 참조하고 있다는 것을 확신해?
 -
 @FunctionalInterface 어노테이션을 통해 보장 받는다
@@ -146,6 +165,9 @@ MathInterface i = Math::random;
 이 말은 즉, 인터페이스를 넘기나 메소드 참조값을 넘길 때나 모두 동일하게 동작한다는 말이다.  
 이 말의 의미는 나중에 살펴보기로 하고
 일단 클래스와 인터페이스를 직접 만들어보자
+
+<br/>
+
 
 📌 [MathBox.java](./MathBox.java)
 -
@@ -194,6 +216,9 @@ MathInterface i = Math::random;
 
 그럼 이제 이 메소드를 받을 인터페이스를 만들어보자
 
+<br/>
+
+
 📌 [Function.java](./Function.java)
 -
 
@@ -206,6 +231,9 @@ MathInterface i = Math::random;
 * 그리고 MathBox.java 의 멤버 메소드 들과 리턴타입, 파라미터의 타입(개수도)이 같다.
 
 아래와 같이 사용해보자.
+
+
+<br/>
 
 📌 [Run2.java](./Run2.java)
 -
@@ -229,11 +257,17 @@ public int sum(int a, int b) {
 * 즉, box::sum 를 참조한 객체를 호출할 때 **int 타입 매개변수를 2개** 넘겨주어야 하고, **return 하는 타입**은 int 임을 알 수 있다.
 * 이를 인지하는 것은 함수형 프로그래밍에서 메소드참조 (::) 를 이해하는데 큰 도움을 준다.
 
+
+<br/>
+
 자바에서는 이 인터페이스를 완전히 함수 취급하듯 호출이 가능하다.
 -
 * 자바에서 @FunctionalInterface이 붙은 인터페이스를 함수형 인터페이스라고 부르는 데 함수형 인터페이스는 완전히 함수 취급하듯 호출할 수 있다고 했다. 
 
 이 말의 의미를 살펴보기 위해 코드를 작성하자
+
+
+<br/>
 
 📌 [Number.java](./Number.java)
 -
@@ -264,6 +298,9 @@ public int sum(int a, int b) {
 
 </details>
 
+
+<br/>
+
 📌 [Run3.java](./Run3.java)
 -
     
@@ -279,6 +316,9 @@ public int sum(int a, int b) {
 
 함수의 주소를 "참조"만 하는 것이기 때문에 해당 메소드를 포함하는 인스턴스의 내부의 상황을 반영하고 있다. 
 아래 코드를 보자
+
+
+<br/>
 
 📌 [Run4.java](./Run4.java)
 -
@@ -311,6 +351,9 @@ getSumWithInstance 함수 내부를 보면 아래와 같다.
 
 인스턴스의 멤버필드인 instance_value 의 값이, 인터페이스(변수,sum1)를 통해 호출했을 때의 값에 반영이 되어 있다는 말이다.
 
+<br/>
+
+
 람다와 메서드 참조의 관계?
 -
 
@@ -318,6 +361,9 @@ getSumWithInstance 함수 내부를 보면 아래와 같다.
 -
 * 람다식은 간단히 말해서 메서드를 하나의 '식(expression)'으로 표현한 것이다.
 * 메소드의 "동작"을 정의 한 **구현체**이기 때문에 메소드참조 대신 아래와 같은 람다표현식으로 대체가 가능하다. (자바에선 람다는 객체가 아닌 함수로 봐야 한다고 한다.)
+
+<br/>
+
 
 📌 [Run5.java](./Run5.java)
 -
@@ -334,6 +380,9 @@ getSumWithInstance 함수 내부를 보면 아래와 같다.
 그리고 아래와 같이 다양한 방법으로 
 메소드를 호출할 수 있다.
 
+<br/>
+
+
 📌 [Run5.java](./Run5.java)
 -
 
@@ -346,6 +395,9 @@ getSumWithInstance 함수 내부를 보면 아래와 같다.
     };
     System.out.println(sum3.func(5,5)); // 10
 ---
+
+
+<br/>
 
 Stream과 함께 사용하기 
 -
@@ -383,6 +435,9 @@ Stream과 함께 사용하기
 * Integer::parseInt 을 통해 return 받은 타입을 다시 리스트로 만들어 출력하는 로직이다.
 * 아래와 같이 람다식으로도 변경이 가능하다.
 
+<br/>
+
+
 
 📌 [MemberVO.java](./MemberVO.java)
 -
@@ -393,6 +448,9 @@ Stream과 함께 사용하기
         }
     }
 
+
+<br/>
+
 📌 [UserVO.java](./UserVO.java)
 -
 
@@ -400,6 +458,9 @@ Stream과 함께 사용하기
         String name;
     }
     
+
+<br/>
+
 📌 [Run7.java](./Run7.java)
 -
 
