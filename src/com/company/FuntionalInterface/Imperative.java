@@ -1,10 +1,10 @@
-package com.company;
+package com.company.FuntionalInterface;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
+import java.util.function.IntBinaryOperator;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Imperative {
 
@@ -18,7 +18,7 @@ public class Imperative {
             new Person("Alice", Gender.MALE)
         );
 
-        // Imperative approach
+        // Imperative approach => 직접 리스트를 반복하는 행위 (우리가 index를 제어함)
         List<Person> females = new ArrayList<>();
 
         // 객체를 구분하기 위함
@@ -34,7 +34,6 @@ public class Imperative {
 
 
         // 이 복잡한 과정을 함수형 프로그래밍으로 줄일 수 있을 거 같음
-
         List<Person> males = people.stream()
                 .filter(person -> Gender.MALE.equals(person.gender))
                 .collect(Collectors.toList());
@@ -60,11 +59,15 @@ public class Imperative {
         strings.stream().map(String::new).collect(Collectors.toList()).forEach(System.out::println);
 
 
-        // Declarative approach
+        IntBinaryOperator test = (a, b)-> 3;
+        Predicate<Person> personPredicate = person -> Gender.MALE.equals(person.gender);
+
+        // Declarative approach => 언어적인 레벨에서 반복문을 돌려주고 있음. 우리는 index 에 대해 신경쓸 필요가 없다.
         people.stream()
-                .filter(person -> Gender.MALE.equals(person.gender))
+                .filter(personPredicate)
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
+
 
 
 
