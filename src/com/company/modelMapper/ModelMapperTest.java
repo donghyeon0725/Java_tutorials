@@ -28,5 +28,15 @@ public class ModelMapperTest {
         System.out.println("entity.getNames() = " + entity.getNames().get(2));
         System.out.println("entity.getNames() = " + entity.getSub().getName());
         System.out.println("entity.getNames() = " + entity.getMembers().get(0).getName());
+
+        /*
+        // 출력
+        entity.getName() = 이름
+        entity.getNames() = 이름1
+        entity.getNames() = 이름2
+        entity.getNames() = 이름3
+        entity.getNames() = 서브
+        entity.getNames() = member dto
+        */
     }
 }
