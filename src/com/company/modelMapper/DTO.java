@@ -8,7 +8,17 @@ public class DTO {
     private String name;
     private List<String> names;
     private SubDTO sub;
+    private Enum eNum;
     private List<MemberDTO> members = new ArrayList<>();
+
+    public Enum geteNum() {
+        return eNum;
+    }
+
+    public DTO seteNum(Enum eNum) {
+        this.eNum = eNum;
+        return this;
+    }
 
     public String getName() {
         return name;

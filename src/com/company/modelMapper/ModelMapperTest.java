@@ -20,6 +20,7 @@ public class ModelMapperTest {
         ));
         dto.setSub(new SubDTO("서브"));
         dto.getMembers().add(new MemberDTO());
+        dto.seteNum(Enum.TEST);
 
         Entity entity = modelMapper.map(dto, Entity.class);
         System.out.println("entity.getName() = " + entity.getName());
@@ -28,6 +29,7 @@ public class ModelMapperTest {
         System.out.println("entity.getNames() = " + entity.getNames().get(2));
         System.out.println("entity.getNames() = " + entity.getSub().getName());
         System.out.println("entity.getNames() = " + entity.getMembers().get(0).getName());
+        System.out.println("entity.getNames() = " + entity.geteNum());
 
         /*
         // 출력

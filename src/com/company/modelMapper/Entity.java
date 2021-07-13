@@ -8,7 +8,17 @@ public class Entity {
     private String name;
     private List<String> names;
     private SubEntity sub;
+    private Enum eNum;
     private List<MemberEntity> members = new ArrayList<>();
+
+    public Enum geteNum() {
+        return eNum;
+    }
+
+    public Entity seteNum(Enum eNum) {
+        this.eNum = eNum;
+        return this;
+    }
 
     public String getName() {
         return name;
