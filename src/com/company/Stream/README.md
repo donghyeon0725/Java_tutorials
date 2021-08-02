@@ -41,3 +41,8 @@ Stream
     - 모든 값이 false일 때 true 리턴
 
 * 실행 : [_Stream.java](./_Stream.java)
+
+
+📌 Collector 기본 사용법
+-
+* 실행 : [_Stream_Collector.java](./_Stream_Collector.java)
