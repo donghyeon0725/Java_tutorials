@@ -48,6 +48,7 @@ public class _Stream_Collector {
         * */
 
 
+        // 중복 제거가 되는 것이 특징
         Set<Animal> animalSet = animals.stream().collect(Collectors.toSet());
 
         for (Animal m : animalSet) {
@@ -60,17 +61,17 @@ public class _Stream_Collector {
         * */
 
 
-        // 같은 키가 있을 경우 나중 것을 사용
-        Map<Integer, Animal> animalMap = animals.stream().collect(Collectors.toMap(o -> o.getId(), o -> o, (old, later) -> later));
+    // 키 충돌이 날 경우 어떤 것을 사용할지 3번째 인자로 넘겨준다. 같은 키가 있을 경우 나중 것을 사용
+    Map<Integer, Animal> animalMap = animals.stream().collect(Collectors.toMap(o -> o.getId(), o -> o, (old, later) -> later));
 
-        for (Integer key : animalMap.keySet()) {
-            System.out.println("key : " + key + ", " + animalMap.get(key).getId());
-        }
-        System.out.println("-------------------------------------------");
-        /*
-        key : 1, 1
-        key : 2, 2
-        * */
+    for (Integer key : animalMap.keySet()) {
+        System.out.println("key : " + key + ", " + animalMap.get(key).getId());
+    }
+    System.out.println("-------------------------------------------");
+    /*
+    key : 1, 1
+    key : 2, 2
+    * */
 
 
         // 같은 키로 묶여서 Map 으로 만듬
