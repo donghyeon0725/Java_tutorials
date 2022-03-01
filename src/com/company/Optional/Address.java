@@ -1,6 +1,5 @@
 package com.company.Optional;
 
-import com.sun.org.apache.bcel.internal.generic.ExceptionThrower;
 
 public class Address {
     private String street;

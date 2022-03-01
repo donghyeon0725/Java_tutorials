@@ -9,3 +9,4 @@
 * [Stream](src/com/company/Stream/README.md "Stream")
 * [Thread](src/com/company/Thread/README.md "Thread")
 * [제네릭 메소드](src/com)
+* [인터페이스 static, default, private method](./src/com/company/)
