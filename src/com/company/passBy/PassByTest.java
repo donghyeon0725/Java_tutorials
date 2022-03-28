@@ -1,6 +1,7 @@
 package com.company.passBy;
 
 public class PassByTest {
+
     static class DTO {
         private String name;
 
